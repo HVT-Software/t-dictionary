@@ -36,6 +36,10 @@
     "prettier": {
       "cache": false
     },
+    "start": {
+      "dependsOn": ["build"],
+      "cache": false
+    },
     "clean:node_modules": {
       "dependsOn": ["^clean:node_modules"],
       "cache": false

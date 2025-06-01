@@ -16,253 +16,189 @@
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/Jonghakseo/chrome-extension-boilerplate-react-viteFactions&count_bg=%23#222222&title_bg=%23#454545&title=😀&edge_flat=true" alt="hits"/>
 <a href="https://discord.gg/4ERQ6jgV9a" target="_blank"><img src="https://discord.com/api/guilds/1263404974830915637/widget.png"/></a>
 
-> This boilerplate
-> has [Legacy version](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/tree/legacy)
+> Boilerplate này
+> có [Phiên bản Legacy](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/tree/legacy)
 
 </div>
 
 > [!NOTE]
-> This project is listed in the [Awesome Vite](https://github.com/vitejs/awesome-vite)
+> Dự án này được liệt kê trong [Awesome Vite](https://github.com/vitejs/awesome-vite)
 
 > [!TIP]
-> Share storage state between all pages
+> Chia sẻ trạng thái lưu trữ giữa tất cả các trang
 >
 > https://github.com/user-attachments/assets/3b8e189f-6443-490e-a455-4f9570267f8c
 
-## Table of Contents
+## Mục lục
 
-- [Intro](#intro)
-- [Features](#features)
-- [Structure](#structure)
+- [Giới thiệu](#intro)
+- [Tính năng](#features)
+- [Cấu trúc](#structure)
     - [ChromeExtension](#structure-chrome-extension)
     - [Packages](#structure-packages)
     - [Pages](#structure-pages)
-- [Getting started](#getting-started)
+- [Bắt đầu](#getting-started)
     - [Chrome](#getting-started-chrome)
     - [Firefox](#getting-started-firefox)
-- [Install dependency](#install-dependency)
-    - [For root](#install-dependency-for-root)
-    - [For module](#install-dependency-for-module)
-- [Environment variables](#env-variables)
-    - [Add new](#env-variables-new)
-    - [Set via CLI](#env-variables-cli-set)
-- [Community](#community)
-- [Reference](#reference)
-- [Star History](#star-history)
-- [Contributors](#contributors)
+- [Cài đặt dependencies](#install-dependency)
+    - [Cho root](#install-dependency-for-root)
+    - [Cho module](#install-dependency-for-module)
+- [Biến môi trường](#env-variables)
+    - [Thêm mới](#env-variables-new)
+    - [Đặt qua CLI](#env-variables-cli-set)
 
-## Intro
+## Giới thiệu
 
-This boilerplate helps you create Chrome/Firefox extensions using React and Typescript. It improves
-the build speed and development experience by using Vite and Turborepo.
+Boilerplate này giúp bạn tạo các extension Chrome/Firefox sử dụng React và TypeScript. Nó cải thiện
+tốc độ build và trải nghiệm phát triển bằng cách sử dụng Vite và Turborepo.
 
-## Features
+## Tính năng
 
 - [React19](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwindcss](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/) with [Rollup](https://rollupjs.org/)
+- [Vite](https://vitejs.dev/) với [Rollup](https://rollupjs.org/)
 - [Turborepo](https://turbo.build/repo)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
 - [Chrome Extensions Manifest Version 3](https://developer.chrome.com/docs/extensions/mv3/intro/)
-- [Custom i18n package](/packages/i18n/)
-- [Custom HMR (Hot Module Rebuild) plugin](/packages/hmr/)
-- [End-to-end testing with WebdriverIO](https://webdriver.io/)
+- [Package i18n tùy chỉnh](/packages/i18n/)
+- [Plugin HMR (Hot Module Rebuild) tùy chỉnh](/packages/hmr/)
+- [Kiểm thử end-to-end với WebdriverIO](https://webdriver.io/)
 
-## Getting started
+## Bắt đầu
 
-1. When you're using Windows run this:
+1. Khi bạn sử dụng Windows, chạy lệnh này:
     - `git config --global core.eol lf`
     - `git config --global core.autocrlf input`
 
-   **This will set the EOL (End of line) character to be the same as on Linux/macOS. Without this, our bash script won't
-   work, and you will have conflicts with developers on Linux/macOS.**
-2. Clone this repository.( ```git clone https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite``` )
-3. Ensure your node version is >= than in `.nvmrc` file, recommend to
-   use [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#intro)
-4. Edit `/packages/i18n/locales/`{your locale(s)}/`messages.json`
-5. In the objects `extensionDescription` and `extensionName`, change the `message` fields (leave `description` alone)
-6. In `/.package.json`, change the `version` to the desired version of your extension.
-7. Install pnpm globally: `npm install -g pnpm` (ensure your node version >= 22.12.0)
-8. Run `pnpm install`
+   **Điều này sẽ đặt ký tự EOL (End of line) giống như trên Linux/macOS. Nếu không có điều này, bash script sẽ không
+   hoạt động và bạn sẽ gặp xung đột với các lập trình viên trên Linux/macOS.**
+2. Clone repository này.( ```git clone https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite``` )
+3. Đảm bảo phiên bản node của bạn >= phiên bản trong file `.nvmrc`, khuyến nghị sử dụng [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#intro)
+4. Chỉnh sửa `/packages/i18n/locales/`{locale của bạn}/`messages.json`
+5. Trong các đối tượng `extensionDescription` và `extensionName`, thay đổi các trường `message` (để nguyên `description`)
+6. Trong `/.package.json`, thay đổi `version` thành phiên bản mong muốn của extension.
+7. Cài đặt pnpm globally: `npm install -g pnpm` (đảm bảo phiên bản node >= 22.12.0)
+8. Chạy `pnpm install`
 
-Then, depending on the target browser:
+Sau đó, tùy thuộc vào trình duyệt đích:
 
-### For Chrome: <a name="getting-started-chrome"></a>
+### Cho Chrome: <a name="getting-started-chrome"></a>
 
-1. Run:
-    - Dev: `pnpm dev` (on Windows, you should run as administrator;
-      see [issue#456](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/issues/456))
+1. Chạy:
+    - Dev: `pnpm dev` (trên Windows, bạn nên chạy với quyền administrator;
+      xem [issue#456](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/issues/456))
     - Prod: `pnpm build`
-2. Open in browser - `chrome://extensions`
-3. Check - <kbd>Developer mode</kbd>
-4. Click - <kbd>Load unpacked</kbd> in the upper left corner
-5. Select the `dist` directory from the boilerplate project
+2. Mở trong trình duyệt - `chrome://extensions`
+3. Tích - <kbd>Developer mode</kbd>
+4. Click - <kbd>Load unpacked</kbd> ở góc trên bên trái
+5. Chọn thư mục `dist` từ dự án boilerplate
 
-### For Firefox: <a name="getting-started-firefox"></a>
+### Cho Firefox: <a name="getting-started-firefox"></a>
 
-1. Run:
+1. Chạy:
     - Dev: `pnpm dev:firefox`
     - Prod: `pnpm build:firefox`
-2. Open in browser - `about:debugging#/runtime/this-firefox`
-3. Click - <kbd>Load Temporary Add-on...</kbd> in the upper right corner
-4. Select the `./dist/manifest.json` file from the boilerplate project
+2. Mở trong trình duyệt - `about:debugging#/runtime/this-firefox`
+3. Click - <kbd>Load Temporary Add-on...</kbd> ở góc trên bên phải
+4. Chọn file `./dist/manifest.json` từ dự án boilerplate
 
 > [!NOTE]
-> In Firefox, you load add-ons in temporary mode. That means they'll disappear after each browser close. You have to
-> load the add-on on every browser launch.
+> Trong Firefox, bạn tải add-ons ở chế độ tạm thời. Có nghĩa là chúng sẽ biến mất sau mỗi lần đóng trình duyệt. Bạn phải
+> tải add-on mỗi lần khởi động trình duyệt.
 
-## Install dependency for turborepo: <a name="install-dependency"></a>
+## Cài đặt dependency cho turborepo: <a name="install-dependency"></a>
 
-### For root: <a name="install-dependency-for-root"></a>
+### Cho root: <a name="install-dependency-for-root"></a>
 
-1. Run `pnpm i <package> -w`
+1. Chạy `pnpm i <package> -w`
 
-### For module: <a name="install-dependency-for-module"></a>
+### Cho module: <a name="install-dependency-for-module"></a>
 
-1. Run `pnpm i <package> -F <module name>`
+1. Chạy `pnpm i <package> -F <tên module>`
 
-`package` - Name of the package you want to install e.g. `nodemon` \
-`module-name` - You can find it inside each `package.json` under the key `name`, e.g. `@extension/content-script`, you
-can use only `content-script` without `@extension/` prefix
+`package` - Tên của package bạn muốn cài đặt ví dụ: `nodemon` \
+`module-name` - Bạn có thể tìm thấy nó trong mỗi `package.json` dưới key `name`, ví dụ: `@extension/content-script`, bạn
+có thể chỉ sử dụng `content-script` mà không cần prefix `@extension/`
 
-## How do I disable modules I'm not using?
+## Làm thế nào để vô hiệu hóa các module tôi không sử dụng?
 
 ```bash
 $ pnpm module-manager
 ```
 
-Read: [Module Manager](packages/module-manager/README.md)
+Đọc: [Module Manager](packages/module-manager/README.md)
 
-## Environment variables
+## Biến môi trường
 
-Read: [Env Documentation](packages/env/README.md)
+Đọc: [Env Documentation](packages/env/README.md)
 
-## Boilerplate structure <a name="structure"></a>
+## Cấu trúc Boilerplate <a name="structure"></a>
 
 ### Chrome extension <a name="structure-chrome-extension"></a>
 
-The extension lives in the `chrome-extension` directory and includes the following files:
+Extension nằm trong thư mục `chrome-extension` và bao gồm các file sau:
 
-- [`manifest.ts`](chrome-extension/manifest.ts) - script that outputs the `manifest.json`
+- [`manifest.ts`](chrome-extension/manifest.ts) - script xuất ra `manifest.json`
 - [`src/background`](chrome-extension/src/background) - [background script](https://developer.chrome.com/docs/extensions/mv3/background_pages/)
-  (`background.service_worker` in manifest.json)
-- [`public`](chrome-extension/public/) - icons referenced in the manifest; content CSS for user's page injection
+  (`background.service_worker` trong manifest.json)
+- [`public`](chrome-extension/public/) - icons được tham chiếu trong manifest; content CSS để inject vào trang người dùng
 
 > [!IMPORTANT]
-> To facilitate development, the boilerplate is configured to "Read and change all your data on all websites".
-> In production, it's best practice to limit the premissions to only the strictly necessary websites. See
+> Để thuận tiện cho việc phát triển, boilerplate được cấu hình để "Đọc và thay đổi tất cả dữ liệu của bạn trên tất cả các trang web".
+> Trong production, thực hành tốt nhất là giới hạn quyền chỉ cho các trang web thực sự cần thiết. Xem
 > [Declaring permissions](https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions)
-> and edit `manifest.js` accordingly.
+> và chỉnh sửa `manifest.js` cho phù hợp.
 
 ### Pages <a name="structure-pages"></a>
 
-Code that is transpiled to be part of the extension lives in the [pages](pages/) directory.
+Code được transpile để trở thành một phần của extension nằm trong thư mục [pages](pages/).
 
 - [
   `content`](pages/content/) - [content scripts](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
-  (`content_scripts` in manifest.json)
-- [`content-ui`](pages/content-ui) - React UI rendered in the current page (you can see it at the very bottom when you
-  get started)
-  (`content_scripts` in manifest.json)
+  (`content_scripts` trong manifest.json)
+- [`content-ui`](pages/content-ui) - React UI được render trong trang hiện tại (bạn có thể thấy nó ở cuối trang khi bắt đầu)
+  (`content_scripts` trong manifest.json)
 - [
   `content-runtime`](pages/content-runtime/src/) - [injected content scripts](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts#functionality);
-  this can be injected from `popup` like standard `content`
+  có thể được inject từ `popup` như `content` tiêu chuẩn
 - [
-  `devtools`](pages/devtools/) - [extend the browser DevTools](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools#creating)
-  (`devtools_page` in manifest.json)
+  `devtools`](pages/devtools/) - [mở rộng browser DevTools](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools#creating)
+  (`devtools_page` trong manifest.json)
 - [
   `devtools-panel`](pages/devtools-panel/) - [DevTools panel](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels)
-  for [devtools](pages/devtools/src/index.ts)
+  cho [devtools](pages/devtools/src/index.ts)
 - [
-  `new-tab`](pages/new-tab/) - [override the default New Tab page](https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages)
-  (`chrome_url_overrides.newtab` in manifest.json)
-- [`options`](pages/options/) - [options page](https://developer.chrome.com/docs/extensions/develop/ui/options-page)
-  (`options_page` in manifest.json)
-- [`popup`](pages/popup/) - [popup](https://developer.chrome.com/docs/extensions/reference/api/action#popup) shown when
-  clicking the extension in the toolbar
-  (`action.default_popup` in manifest.json)
+  `new-tab`](pages/new-tab/) - [ghi đè trang New Tab mặc định](https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages)
+  (`chrome_url_overrides.newtab` trong manifest.json)
+- [`options`](pages/options/) - [trang options](https://developer.chrome.com/docs/extensions/develop/ui/options-page)
+  (`options_page` trong manifest.json)
+- [`popup`](pages/popup/) - [popup](https://developer.chrome.com/docs/extensions/reference/api/action#popup) hiển thị khi
+  click vào extension trên toolbar
+  (`action.default_popup` trong manifest.json)
 - [
   `side-panel`](pages/side-panel/) - [sidepanel (Chrome 114+)](https://developer.chrome.com/docs/extensions/reference/api/sidePanel)
-  (`side_panel.default_path` in manifest.json)
+  (`side_panel.default_path` trong manifest.json)
 
 ### Packages <a name="structure-packages"></a>
 
-Some shared packages:
+Một số shared packages:
 
-- `dev-utils` - utilities for Chrome extension development (manifest-parser, logger)
-- `env` - exports object which contain all environment variables from `.env` and dynamically declared
-- `hmr` - custom HMR plugin for Vite, injection script for reload/refresh, HMR dev-server
-- `i18n` - custom internationalization package; provides i18n function with type safety and other validation
-- `shared` - shared code for the entire project (types, constants, custom hooks, components etc.)
-- `storage` - helpers for easier integration with [storage](https://developer.chrome.com/docs/extensions/reference/api/storage), e.g. local/session storages
-- `tailwind-config` - shared Tailwind config for entire project
-- `tsconfig` - shared tsconfig for the entire project
-- `ui` - function to merge your Tailwind config with the global one; you can save components here
-- `vite-config` - shared Vite config for the entire project
+- `dev-utils` - tiện ích cho việc phát triển Chrome extension (manifest-parser, logger)
+- `env` - xuất object chứa tất cả biến môi trường từ `.env` và được khai báo động
+- `hmr` - plugin HMR tùy chỉnh cho Vite, injection script để reload/refresh, HMR dev-server
+- `i18n` - package quốc tế hóa tùy chỉnh; cung cấp hàm i18n với type safety và các validation khác
+- `shared` - code dùng chung cho toàn bộ dự án (types, constants, custom hooks, components v.v.)
+- `storage` - helpers để tích hợp dễ dàng hơn với [storage](https://developer.chrome.com/docs/extensions/reference/api/storage), ví dụ: local/session storages
+- `tailwind-config` - cấu hình Tailwind dùng chung cho toàn bộ dự án
+- `tsconfig` - tsconfig dùng chung cho toàn bộ dự án
+- `ui` - hàm để merge cấu hình Tailwind của bạn với cấu hình global; bạn có thể lưu components ở đây
+- `vite-config` - cấu hình Vite dùng chung cho toàn bộ dự án
 
-Other useful packages:
+Các packages hữu ích khác:
 
-- `zipper` - run `pnpm zip` to pack the `dist` folder into `extension-YYYYMMDD-HHmmss.zip` inside the newly created
-  `dist-zip`
-- `module-manager` - run `pnpm module-manager` to enable/disable modules
-- `e2e` - run `pnpm e2e` for end-to-end tests of your zipped extension on different browsers
+- `zipper` - chạy `pnpm zip` để đóng gói thư mục `dist` thành `extension-YYYYMMDD-HHmmss.zip` trong thư mục `dist-zip` mới tạo
+- `module-manager` - chạy `pnpm module-manager` để bật/tắt modules
+- `e2e` - chạy `pnpm e2e` để kiểm thử end-to-end extension đã được zip trên các trình duyệt khác nhau
 
-## Troubleshooting
-
-### Hot module reload seems to have frozen
-
-If saving source files doesn't cause the extension HMR code to trigger a reload of the browser page, try this:
-
-1. Ctrl+C the development server and restart it (`pnpm run dev`)
-2. If you get a [`grpc` error](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/issues/612),
-   [kill the
-   `turbo` process](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/issues/612#issuecomment-2518982339)
-   and run `pnpm dev` again.
-
-## Community
-
-To chat with other community members, you can join the [Discord](https://discord.gg/4ERQ6jgV9a) server.
-You can ask questions on that server, and you can also help others.
-
-Also, suggest new features or share any challenges you've faced while developing Chrome extensions!
-
-If you're debugging one, you can use [Brie](https://go.briehq.com/github?utm_source=CEB) lets you capture screenshots, errors, and network activity, making it easier for us to help.
-
-## Reference
-
-- [Chrome Extensions](https://developer.chrome.com/docs/extensions)
-- [Vite Plugin](https://vitejs.dev/guide/api-plugin.html)
-- [Rollup](https://rollupjs.org/guide/en/)
-- [Turborepo](https://turbo.build/repo/docs)
-- [Rollup-plugin-chrome-extension](https://www.extend-chrome.dev/rollup-plugin)
-
-## Star History <a name="star-history"></a>
-
-<a href="https://star-history.com/#Jonghakseo/chrome-extension-boilerplate-react-vite&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Jonghakseo/chrome-extension-boilerplate-react-vite&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Jonghakseo/chrome-extension-boilerplate-react-vite&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Jonghakseo/chrome-extension-boilerplate-react-vite&type=Date" />
- </picture>
-</a>
-
-## Contributors <a name="contributors"></a>
-
-This Boilerplate is made possible thanks to all of its contributors.
-
-<a href="https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/graphs/contributors">
-  <img width="500px" src="https://contrib.rocks/image?repo=Jonghakseo/chrome-extension-boilerplate-react-vite" alt="All Contributors"/>
-</a>
-
----
-
-## Special Thanks To
-
-| <a href="https://jb.gg/OpenSourceSupport"><img width="40" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo."></a> | <a href="https://www.linkedin.com/in/j-acks0n"><img width="40" style="border-radius:50%" src='https://avatars.githubusercontent.com/u/23139754' alt='Jackson Hong'/></a> |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
----
-
-Made by [Jonghakseo](https://jonghakseo.github.io/)
